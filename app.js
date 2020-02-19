@@ -53,7 +53,7 @@ sql.connect(dbConfig, function (err) {
     res.send(err);
   }
   else{
-    console.log('connected successfully')
+    console.log('connected successfully nw')
     login =true;
   }
 
