@@ -70,7 +70,7 @@ sql.connect(dbConfig, function (err) {
 
 			var request = new sql.Request();
 			// query to the database
-			request.query("select * from ReadOnly.HelloWorldNew", function (err, recordset) {
+			request.query("select * from ReadOnly.HelloWorldNew2", function (err, recordset) {
 				if (err) {
 					console.log("Error while querying database :- " + err);
 					res.send(err);
