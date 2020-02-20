@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const sql = require("mssql");
 const app = express();
 const cors          = require('cors');
+const connection = require("./config")
 let login = false;
 
 let proposedEndDate_Casted;
@@ -36,18 +37,18 @@ app.use((req, res, next) => {
   next();
 });
 
-
+console.log(connection.dbConfig);
 
 //Initiallising connection string
-var dbConfig = {
-    user: 'alok.kumar',
-        password: 'infy@6176',
-        server: 'spiderdevdbsrv.centralindia.cloudapp.azure.com',
-        database: 'G7CR-SPIDERS-V1-Dev',
-        port:25282
-};
+// var dbConfig = {
+//     user: 'alok.kumar',
+//         password: 'infy@6176',
+//         server: 'spiderdevdbsrv.centralindia.cloudapp.azure.com',
+//         database: 'G7CR-SPIDERS-V1-Dev',
+//         port:25282
+// };
 
-sql.connect(dbConfig, function (err) {
+sql.connect(connection.dbConfig, function (err) {
   if (err) {
     console.log("Error while connecting database :- " + err);
     res.send(err);
